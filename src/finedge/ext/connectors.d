@@ -109,9 +109,12 @@ shared abstract class ExtensionConnector
 shared interface IIntegratedConnectorImpl
 {
 	@property immutable(Dict) record();
-	@property string recStr();
+	@property immutable(TuningPolicy) tuningPolicy();
 	@property shared(ConnPoint)[] watchedPoints();
 	@property shared(ConnPoint[Ref]) pointTable();
+	@property bool isOpen();
+	void send(immutable(ConnMsg) message);
+	
 }
 
 shared interface ConnPoint
@@ -133,4 +136,33 @@ shared interface ConnPoint
 	void updateReadError(Error error);
 	void updateWriteOk(immutable(Tag) value, int priority);
 	void updateReadOk(immutable(Tag) value, int priority);
+}
+
+immutable class ConnMsg
+{
+	string name;
+	Tag data;
+
+	this(string name)
+	{
+		this.name	= name;
+		this.data	= Tag.init;
+	}
+
+	this(string name, immutable(Tag) data)
+	{
+		this.name	= name;
+		this.data	= data;
+	}
+
+	public static immutable(ConnMsg) make(string name)
+	{
+		return new immutable ConnMsg(name);
+	}
+
+
+	public static immutable(ConnMsg) make(string name, immutable(Tag) data)
+	{
+		return new immutable ConnMsg(name, data);
+	}
 }

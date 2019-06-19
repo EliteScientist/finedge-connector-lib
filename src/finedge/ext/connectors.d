@@ -27,7 +27,7 @@ immutable struct TuningPolicy
 {
 	Dict record;
 	string name					= "default";
-	Duration pollInterval		= dur!("seconds")(10);
+	Duration pollInterval		= dur!("seconds")(1);
 	Duration staleExpiration	= dur!("minutes")(5);
 	Duration maxWriteInterval;
 	Duration minWriteInterval;

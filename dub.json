@@ -1,0 +1,23 @@
+{
+  "name": 				"finedge-connectors",
+  "targetName": 		"edgeConnectorLib",
+  "targetType": 		"dynamicLibrary",
+  "description": 		"Edge Connector Library",
+  "authors": 			[ "Michael Rochelle" ],
+  "copyright": 			"(c) 2019, J2 Innovations",
+  "homepage": 			"https://bitbucket.org/finproducts/finedge-core/wiki/Home",
+  "license": 			"Proprietary",
+  "configurations":
+  [
+	{
+		"name": "library",
+		"targetType": "library",
+	}
+  ],
+  "sourcePaths": ["src/"],
+  "dependencies": 
+  {
+	"haystacklib": "~haystack4"
+  },
+  "version": "1.0.0"
+}

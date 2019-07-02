@@ -50,6 +50,16 @@ immutable struct TuningPolicy
 			this.minWriteInterval	= dur!("seconds")(cast (long) record.get!Num("minWriteTime").val);
 	}
 
+	@property bool hasMinWrite()
+	{
+		return (this.minWriteInterval != Duration.init);
+	}
+	
+	@property bool hasMaxWrite()
+	{
+		return (this.maxWriteInterval != Duration.init);
+	}
+
 	@property immutable(Ref) id()
 	{
 		if (this.record == Dict.init)

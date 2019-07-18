@@ -89,6 +89,7 @@ shared abstract class ExtensionConnector
 	abstract void onPoll();
 	abstract void onWrite(shared(ConnPoint) point, Tag value, int level, string who);
 	abstract immutable(Grid) onLearn(Tag token = Na());
+	abstract void onPointChange(shared(ConnPoint) point, immutable(Dict) changes);
 	abstract void onWatch(shared(ConnPoint)[] points);
 	abstract void onUnwatch(shared(ConnPoint)[] points);
 	abstract void onHouseKeeping();

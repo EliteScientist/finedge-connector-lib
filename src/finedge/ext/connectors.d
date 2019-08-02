@@ -1,7 +1,7 @@
 module finedge.ext.connectors;
 
 import haystack.tag;
-import haystack.zinc.filter;
+import haystack.filter;
 import std.typecons;
 import std.conv;
 import std.array;

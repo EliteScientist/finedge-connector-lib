@@ -17,6 +17,6 @@
   "sourcePaths": ["src/"],
   "dependencies": 
   {
-	"haystacklib": "~haystack4"
+	"haystacklib": "~master"
   }
 }

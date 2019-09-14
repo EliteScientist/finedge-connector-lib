@@ -152,18 +152,23 @@ shared interface ConnPoint
 immutable class ConnMsg
 {
 	string name;
-	Tag data;
+	Tag[] data;
 
 	this(string name)
 	{
 		this.name	= name;
-		this.data	= Tag.init;
+		this.data	= null;
 	}
 
-	this(string name, immutable(Tag) data)
+	this(string name, immutable(Tag)[] data)
 	{
 		this.name	= name;
 		this.data	= data;
+	}
+
+	bool hasData()
+	{
+		return (this.data !is null);
 	}
 
 	public static immutable(ConnMsg) make(string name)
@@ -172,7 +177,7 @@ immutable class ConnMsg
 	}
 
 
-	public static immutable(ConnMsg) make(string name, immutable(Tag) data)
+	public static immutable(ConnMsg) make(string name, immutable(Tag)[] data)
 	{
 		return new immutable ConnMsg(name, data);
 	}

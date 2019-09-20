@@ -181,4 +181,9 @@ immutable class ConnMsg
 	{
 		return new immutable ConnMsg(name, data);
 	}
+
+	public static immutable(ConnMsg) make(string name, immutable(Tag) data)
+	{
+		return new immutable ConnMsg(name, [data]);
+	}
 }

@@ -117,6 +117,22 @@ shared abstract class ExtensionConnector
 	}
 }
 
+shared abstract class NativeEdgeExtension : EdgeExtensionImpl
+{
+	// TODO: Make DB query and commit aliases. So that the extension can manipulate the db
+}
+
+shared interface EdgeExtensionImpl
+{
+	void onStart();
+	void onStop();
+	void onEnable();
+	void onDisable();
+	void onUnload();
+	void onChange(immutable(Dict) changes);
+	immutable(Grid) onDiscover(Tag params = Tag.init);
+}
+
 shared interface IIntegratedConnectorImpl
 {
 	@property immutable(Dict) record();
